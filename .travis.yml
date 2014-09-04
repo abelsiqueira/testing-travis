@@ -1,0 +1,5 @@
+language: cpp
+script: ./test.sh
+notification:
+  email:
+    on_success: always
