@@ -8,3 +8,5 @@ do
   objdump -f -T $f | grep GFORTRAN_1.4
 done
 
+whereis libgfortran
+
