@@ -2,22 +2,9 @@
 
 set -ev
 
-cat >> ~/.bashrc << EOF
-export TESTING_TRAVIS=123
-EOF
+for f in $(find /usr/lib* -name "libgfortran*")
+do
+  ls -l $f
+  objdump -f $f | grep GFORTRAN_1.4
+done
 
-# Sourcing .bashrc
-source ~/.bashrc
-# end
-
-echo $TESTING_TRAVIS
-
-cat >> local_file << EOF
-export LOCAL_TESTING_TRAVIS=123
-EOF
-
-# Sourcing local_file
-source local_file
-# end
-
-echo $LOCAL_TESTING_TRAVIS
