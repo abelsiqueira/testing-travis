@@ -1,10 +1,10 @@
 #!/bin/bash
 
-set -ev
+set -v
 
 for f in $(find /usr/lib* -name "libgfortran*")
 do
   ls -l $f
-  objdump -f $f | grep GFORTRAN_1.4
+  objdump -f -T $f | grep GFORTRAN_1.4
 done
 
