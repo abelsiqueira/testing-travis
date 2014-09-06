@@ -5,8 +5,11 @@ set -v
 for f in $(find /usr/lib* -name "libgfortran*")
 do
   ls -l $f
-  objdump -f -T $f | grep GFORTRAN_1.4
 done
 
+whereis -l | grep lib
 whereis libgfortran
 
+echo "int main () { return 0; }" > main.c
+gcc main.c -o main -lgfortran
+./main
